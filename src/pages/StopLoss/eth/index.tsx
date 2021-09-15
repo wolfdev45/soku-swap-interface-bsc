@@ -40,9 +40,9 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import AutoPriceInput from 'components/autonomy/AutoPriceInput'
 import AutoHistory from 'components/autonomy/AutoHistory'
 import { ErrorText } from 'components/swap/styleds'
-import AppBody from '../AppBody'
+import AppBody from '../../AppBody'
 
-const StopLoss = () => {
+const ethStopLoss = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
   const TranslateString = useI18n()
 
@@ -294,7 +294,7 @@ const StopLoss = () => {
     [onCurrencySelection, checkForSyrup]
   )
 
-  document.title = 'SokuSwap | Swap'
+  document.title = 'SokuSwap | eth-Stoploss'
 
   return (
     <>
@@ -321,7 +321,7 @@ const StopLoss = () => {
             realOutputAmount={realOutputValue}
           />
           <PageHeader
-            title={TranslateString(8, 'Stop Loss')}
+            title={TranslateString(8, 'Stop Loss on ETH mainnet')}
             description={TranslateString(1192, 'Trade tokens in an instant')}
           />
           <CardBody>
@@ -536,4 +536,4 @@ const StopLoss = () => {
   )
 }
 
-export default StopLoss
+export default ethStopLoss

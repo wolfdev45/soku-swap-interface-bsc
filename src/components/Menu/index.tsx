@@ -35,6 +35,7 @@ const Menu: React.FC = (props) => {
   const truncatedAddress = `${truncatedFirstHalf}...${truncatedLastHalf}`
 
   const isBSC = window.location.href.includes('/bsc/')
+  const isETH = window.location.href.includes('/ethereum/')
 
   const openHiddenLinks = () => {
     const hiddenLinks = document.getElementsByClassName('hidden_navLinks')
@@ -58,12 +59,22 @@ const Menu: React.FC = (props) => {
               <li>Swap</li>
             </NavLink>
             {isBSC && (
-              <NavLink className="nav_link" activeClassName="active" to="/limit-order">
+              <NavLink className="nav_link" activeClassName="active" to="/bsc-limit-order">
+                <li>Limit Order</li>
+              </NavLink>
+            )}
+            {isETH && (
+              <NavLink className="nav_link" activeClassName="active" to="/eth-limit-order">
                 <li>Limit Order</li>
               </NavLink>
             )}
             {isBSC && (
-              <NavLink className="nav_link" activeClassName="active" to="/stop-loss">
+              <NavLink className="nav_link" activeClassName="active" to="/bsc-stop-loss">
+                <li>Stop Loss</li>
+              </NavLink>
+            )}
+            {isETH && (
+              <NavLink className="nav_link" activeClassName="active" to="/eth-stop-loss">
                 <li>Stop Loss</li>
               </NavLink>
             )}

@@ -13,9 +13,6 @@ const Toggle = () => {
   const ethToggle = document.querySelector('.ethToggle')
   const bscToggle = document.querySelector('.bscToggle')
 
-  if (ethToggle?.classList == ' toggleActive') {
-    ethToggle?.classList.remove('toggleActive')
-  }
 
   checkbox?.addEventListener('change', function () {
     // Check if toggle switch is on BSC
@@ -57,7 +54,7 @@ const Toggle = () => {
         <CheckBox id="checkbox" type="checkbox" defaultChecked={!false} />
         <CheckBoxLabel htmlFor="checkbox" />
       </CheckBoxWrapper>
-      <p className="form-check-label bscToggle toggleActive">BSC</p>
+      <p className="form-check-label bscToggle">BSC</p>
     </div>
   )
 }

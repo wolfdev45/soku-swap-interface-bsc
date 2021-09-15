@@ -11,6 +11,16 @@ export const REGISTRY_CONTRACT_ADDRESS: AddressMap = {
   [ChainId.BSCTESTNET]: '0x0a92B53e97D5da0ba8253c9015fFef0F9D9cd750',
 }
 
+/**
+ * Autonomy Registry Contract
+ * !! Only for ETH MAINNET/ROPSTEN 
+ * !! bsc testnet in REGISTRY_CONTRACT_ETH_ADDRESS is ropsten address
+ */
+ export const REGISTRY_CONTRACT_ETH_ADDRESS: AddressMap = {
+  [ChainId.MAINNET]: '0xfA10ebE826a3074fDD105a83F510Ba618EBd80e1',
+  [ChainId.BSCTESTNET]: '0x0a92B53e97D5da0ba8253c9015fFef0F9D9cd750',
+}
+
  /**
   * Mid Router Contract (Uniswap V2)
   * !! Only for BSC Mainnet/Testnet

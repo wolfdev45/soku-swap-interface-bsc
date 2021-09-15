@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import useAuth from 'hooks/useAuth'
-
 import { Menu as UikitMenu, useWalletModal } from '@pancakeswap-libs/uikit'
 import ClaimSokuModal from 'components/ClaimSokuModal'
 import AccountModal from 'components/AccountModal'
@@ -20,8 +19,10 @@ import Pool from './Pool'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
 import Swap from './Swap'
-import LimitOrder from './LimitOrder'
-import StopLoss from './StopLoss'
+import bscLimitOrder from './LimitOrder/bsc'
+import ethLimitOrder from './LimitOrder/eth'
+import ethStopLoss from './StopLoss/eth'
+import bscStopLoss from './StopLoss/bsc'
 import { RedirectPathToSwapOnly, RedirectHashRoutes } from './Swap/redirects'
 import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
@@ -224,9 +225,11 @@ export default function App() {
                 <Web3ReactManager>
                   <Switch>
                     <Route exact strict path="/swap" component={Swap} />
-                    <Route exact strict path="/limit-order" component={LimitOrder} />
-                    <Route exact strict path="/stop-loss" component={StopLoss} />
-                    <Route exact strict path="/find" component={PoolFinder} />
+                    <Route exact strict path="/bsc-limit-order" component={bscLimitOrder}/>
+                    <Route exact strict path="/eth-limit-order" component={ethLimitOrder}/>               
+                    <Route exact strict path="/bsc-stop-loss" component={bscStopLoss}/>
+                    <Route exact strict path="/eth-stop-loss" component={ethStopLoss}/>
+                    <Route exact strict path="/find" component={PoolFinder}/>
                     <Route exact path="/pool" component={Pool} />
                     <Route exact path="/add" component={AddLiquidity} />
                     <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
