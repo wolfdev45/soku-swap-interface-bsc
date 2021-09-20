@@ -46,19 +46,16 @@ const AppWrapper = styled.div`
   height: 100vh;
   // max-height: 100vh;
   font-family: 'Poppins', sans-serif;
-
   @media (max-width: 650px) and (max-height: 930px) {
     // background-position: bottom 67px right 10px;
     // background-size: 50% !important;
     // border: 1px solid red;
   }
-
   @media (min-width: 600px) and (max-width: 900px) {
     // background-position: bottom 67px right 10px;
     // background-size: 50% !important;
     // border: 1px solid red;
   }
-
   @media (min-height: 1100px) {
     // background-position: bottom right 10px !important;
     // background-size: 35% !important;
@@ -83,11 +80,9 @@ const BodyWrapper = styled.div`
   // background-position: bottom 67px right 10px;
   // background-size: 50% !important;
   // height: 100vh !important;
-
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
-
   ${({ theme }) => theme.mediaQueries.lg} {
     // background-image: url(https://i.ibb.co/DK7D78c/Soku-Mobile-Lower-Logo.png);
     // background-repeat: no-repeat;

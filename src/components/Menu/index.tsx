@@ -34,7 +34,7 @@ const Menu: React.FC = (props) => {
   const truncatedLastHalf = account?.substring(account.length - 5, account.length)
   const truncatedAddress = `${truncatedFirstHalf}...${truncatedLastHalf}`
 
-  const isBSC = window.location.href.includes('/bsc/')
+  const isBSC = window.location.href.includes('bsc') 
   const isETH = window.location.href.includes('/ethereum/')
 
   let button
@@ -67,7 +67,7 @@ const Menu: React.FC = (props) => {
           </NavLink>
           <div className="navbar__options">
             {isBSC && (
-              <NavLink className="nav_link" activeClassName="active" to="/bsc-swap">
+              <NavLink className="nav_link" activeClassName="active" to="/swap">
                 <li>Swap</li>
               </NavLink>
             )}
@@ -183,5 +183,4 @@ const Menu: React.FC = (props) => {
 //   profile={profile}
 //   {...props}
 // />
-
 export default Menu

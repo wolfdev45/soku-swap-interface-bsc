@@ -11,15 +11,15 @@ const Toggle = () => {
 // change default check value to be displayed in check box depending on current window location 
   if (window.location.href == `${origin}/ethereum/#/eth-swap`) {
     defaultCheckedValue = false
-  } else if (window.location.href == `${origin}/bsc/#/bsc-swap`) {
+  } else if (window.location.href == `${origin}/bsc#/bsc-swap`) {
     defaultCheckedValue = !false
   } else if (window.location.href == `${origin}/eth/#/eth-limit-order`) {
     defaultCheckedValue = false
-  } else if (window.location.href == `${origin}/bsc/#/bsc-limit-order`) {
+  } else if (window.location.href == `${origin}/bsc#/bsc-limit-order`) {
     defaultCheckedValue = !false
   }else if (window.location.href == `${origin}/eth/#/eth-stop-loss`) {
     defaultCheckedValue = false
-  } else if (window.location.href == `${origin}/bsc/#/bsc-stop-loss`) {
+  } else if (window.location.href == `${origin}/bsc#/bsc-stop-loss`) {
     defaultCheckedValue = !false
   }
   // If checked, add active class to either ETH or BSC
@@ -32,8 +32,9 @@ const Toggle = () => {
   checkbox?.addEventListener('change', function () {
     // Check if toggle switch is on BSC
     if (this.checked) {
+
       if (window.location.href == `${origin}/ethereum/#/eth-swap`) {
-        window.location.href = `${origin}/bsc/#/bsc-swap`
+        window.location.href = `${origin}/bsc#/bsc-swap`
         
         for (let i = 0; i < bscToggle?.classList.length; i++) {
           if (bscToggle.classList[i] == 'toggleActive') {
@@ -45,7 +46,7 @@ const Toggle = () => {
             }
           }
         }
-      }  else if (window.location.href == `${origin}/bsc/#/bsc-swap`) {
+      }  else if (window.location.href == `${origin}/bsc#/bsc-swap`) {
         window.location.href = `${origin}/ethereum/#/eth-swap`
         
         for (let i = 0; i < bscToggle?.classList.length; i++) {
@@ -58,7 +59,7 @@ const Toggle = () => {
             }
           }
         }
-      } else if (window.location.href == `${origin}/bsc/#/bsc-limit-order`) {
+      } else if (window.location.href == `${origin}/bsc#/bsc-limit-order`) {
         window.location.href = `${origin}/ethereum/#/eth-limit-order`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (ethToggle.classList[i] == 'toggleActive') {
@@ -71,7 +72,7 @@ const Toggle = () => {
           }
         }
       } else if (window.location.href == `${origin}/ethereum/#/eth-limit-order`) {
-        window.location.href = `${origin}/bsc/#/bsc-limit-order`
+        window.location.href = `${origin}/bsc#/bsc-limit-order`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (bscToggle.classList[i] == 'toggleActive') {
             return
@@ -83,7 +84,7 @@ const Toggle = () => {
           }
         }
       }
-      else if (window.location.href == `${origin}/bsc/#/bsc-limit-order`) {
+      else if (window.location.href == `${origin}/bsc#/bsc-limit-order`) {
         window.location.href = `${origin}/ethereum/#/eth-limit-order`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (ethToggle.classList[i] == 'toggleActive') {
@@ -96,7 +97,7 @@ const Toggle = () => {
           }
         }
       } else if (window.location.href == `${origin}/ethereum/#/eth-limit-order`) {
-        window.location.href = `${origin}/bsc/#/bsc-limit-order`
+        window.location.href = `${origin}/bsc#/bsc-limit-order`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (bscToggle.classList[i] == 'toggleActive') {
             return
@@ -108,7 +109,7 @@ const Toggle = () => {
           }
         }
       } 
-      else if (window.location.href == `${origin}/bsc/#/bsc-stop-loss`) {
+      else if (window.location.href == `${origin}/bsc#/bsc-stop-loss`) {
         window.location.href = `${origin}/ethereum/#/eth-stop-loss`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (ethToggle.classList[i] == 'toggleActive') {
@@ -121,7 +122,7 @@ const Toggle = () => {
           }
         }
       } else if (window.location.href == `${origin}/ethereum/#/eth-stop-loss`) {
-        window.location.href = `${origin}/bsc/#/bsc-stop-loss`
+        window.location.href = `${origin}/bsc#/bsc-stop-loss`
         for (let i = 0; i < ethToggle?.classList.length; i++) {
           if (bscToggle.classList[i] == 'toggleActive') {
             return
