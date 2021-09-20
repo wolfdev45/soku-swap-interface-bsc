@@ -37,6 +37,17 @@ const Menu: React.FC = (props) => {
   const isBSC = window.location.href.includes('/bsc/')
   const isETH = window.location.href.includes('/ethereum/')
 
+  let button
+  if (isBSC) {
+    button = <button type="button" onClick={onPresentConnectModal}>
+      Connect Wallet
+    </button>
+  } else {
+    <button type="button" onClick={onPresentConnectModal}>
+      Connect Wallet
+    </button>
+  }
+
   const openHiddenLinks = () => {
     const hiddenLinks = document.getElementsByClassName('hidden_navLinks')
     // console.log(hiddenLinks)
@@ -55,9 +66,16 @@ const Menu: React.FC = (props) => {
             <img className="nav_logo" style={{ height: '50px' }} alt="Logo" src="https://app.sokuswap.finance/bsc/images/Web-Corner-Logo.png" />
           </NavLink>
           <div className="navbar__options">
-            <NavLink className="nav_link" activeClassName="active" to="/swap">
-              <li>Swap</li>
-            </NavLink>
+            {isBSC && (
+              <NavLink className="nav_link" activeClassName="active" to="/bsc-swap">
+                <li>Swap</li>
+              </NavLink>
+            )}
+            {isETH && (
+              <NavLink className="nav_link" activeClassName="active" to="/eth-swap">
+                <li>Swap</li>
+              </NavLink>
+            )}
             {isBSC && (
               <NavLink className="nav_link" activeClassName="active" to="/bsc-limit-order">
                 <li>Limit Order</li>

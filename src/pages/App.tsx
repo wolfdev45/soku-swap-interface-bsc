@@ -18,7 +18,8 @@ import AddLiquidity from './AddLiquidity'
 import Pool from './Pool'
 import PoolFinder from './PoolFinder'
 import RemoveLiquidity from './RemoveLiquidity'
-import Swap from './Swap'
+import bscSwap from './Swap/bsc'
+import ethSwap from './Swap/eth'
 import bscLimitOrder from './LimitOrder/bsc'
 import ethLimitOrder from './LimitOrder/eth'
 import ethStopLoss from './StopLoss/eth'
@@ -224,14 +225,15 @@ export default function App() {
                 <Popups />
                 <Web3ReactManager>
                   <Switch>
-                    <Route exact strict path="/swap" component={Swap} />
+                    <Route exact strict path="/bsc-swap" component={bscSwap} />
+                    <Route exact strict path="/eth-swap" component={ethSwap} />
                     <Route exact strict path="/bsc-limit-order" component={bscLimitOrder}/>
                     <Route exact strict path="/eth-limit-order" component={ethLimitOrder}/>               
                     <Route exact strict path="/bsc-stop-loss" component={bscStopLoss}/>
                     <Route exact strict path="/eth-stop-loss" component={ethStopLoss}/>
                     <Route exact strict path="/find" component={PoolFinder}/>
                     <Route exact path="/pool" component={Pool} />
-                    <Route exact path="/add" component={AddLiquidity} />
+                    <Route exact path="/add" component={AddLiquidity}/>
                     <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 
                     {/* Redirection: These old routes are still used in the code base */}

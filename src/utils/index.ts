@@ -11,6 +11,11 @@ import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA, R
 import { TokenAddressMap } from '../state/lists/hooks'
 import invariant from 'tiny-invariant'
 import warning from 'tiny-warning'
+import { prefix } from 'multihashes/src/'
+
+
+const isBSC = window.location.href.includes('/bsc/')
+const isETH = window.location.href.includes('/ethereum/')
 
 export function validateSolidityTypeInstance(value: JSBI, solidityType: SolidityType): void {
   invariant(JSBI.greaterThanOrEqual(value, ZERO), `${value} is not a ${solidityType}.`)
@@ -29,11 +34,23 @@ export function isAddress(value: any): string | false {
 const BSCSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   56: '',
   97: 'testnet.',
+ 
 }
-
+const ethSCAN_PREFIXES: { 1: string, 3: string } = {
+  1: '',
+  3: 'ropsten.',
+ 
+}
 export function getBscScanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
-  const prefix = `https://${BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET]}bscscan.com`
+  let prefix
+  if (isBSC){
+     prefix = `https://${BSCSCAN_PREFIXES[chainId] || BSCSCAN_PREFIXES[ChainId.MAINNET]}bscscan.com`
+  }
 
+  if(isETH){
+   prefix = `https://${ethSCAN_PREFIXES[chainId] || ethSCAN_PREFIXES[ChainId.MAINNET]}etherscan.com`
+  }
+ 
   switch (type) {
     case 'transaction': {
       return `${prefix}/tx/${data}`

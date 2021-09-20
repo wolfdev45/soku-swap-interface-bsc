@@ -37,9 +37,9 @@ import Loader from 'components/Loader'
 import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import AppBody from '../AppBody'
+import AppBody from '../../AppBody'
 
-const Swap = () => {
+const ethSwap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
   const TranslateString = useI18n()
 
@@ -258,7 +258,7 @@ const Swap = () => {
     [onCurrencySelection, checkForSyrup]
   )
 
-  document.title = 'SokuSwap | Swap'
+  document.title = 'SokuSwap | ETH Swap'
 
   return (
     <>
@@ -283,7 +283,7 @@ const Swap = () => {
             onDismiss={handleConfirmDismiss}
           />
           <PageHeader
-            title={TranslateString(8, 'Swap')}
+            title={TranslateString(8, 'Swap on ETH')}
             description={TranslateString(1192, 'Trade tokens in an instant')}
           />
           <CardBody>
@@ -497,4 +497,4 @@ const Swap = () => {
   )
 }
 
-export default Swap
+export default ethSwap
