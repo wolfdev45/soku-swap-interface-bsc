@@ -138,12 +138,12 @@ const Toggle = () => {
 
   return (
     <div className="sokuswap__toggleContainer">
-      <p className="form-check-label ethToggle">ETH {defaultCheckedValue.toString()}</p>
+      <p className="form-check-label ethToggle">ETH </p>
       <CheckBoxWrapper>
         <CheckBox id="checkbox" type="checkbox" defaultChecked={defaultCheckedValue} />
         <CheckBoxLabel htmlFor="checkbox" />
       </CheckBoxWrapper>
-      <p className="form-check-label bscToggle">BSC {defaultCheckedValue.toString()}</p>
+      <p className="form-check-label bscToggle">BSC</p>
     </div>
   )
 }
