@@ -111,10 +111,11 @@ const Menu: React.FC = (props) => {
           </div>
         </ul>
         <ul className="connectWallet__options__DESKTOP">
-          {account ? (
+          {account  ? (
             // <li className="account" onClick={onPresentConnectModal}>
             //   Account: {truncatedAddress}
             // </li>
+            
             <AccountModal />
           ) : (
             <li className="connectWallet__nav">

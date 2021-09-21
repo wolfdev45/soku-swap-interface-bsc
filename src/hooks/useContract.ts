@@ -1,5 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
-import { ChainId, WETH } from '@pancakeswap-libs/sdk-v2'
+import { ChainId, WETH as WBNB } from '@pancakeswap-libs/sdk-v2'
+import { ChainId as ethID, WETH as weth} from '@uniswap/sdk'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
 import ENS_ABI from '../constants/abis/ens-registrar.json'
@@ -17,6 +18,7 @@ import {
   REGISTRY_CONTRACT_ABI,
   MIDROUTER_CONTRACT_ABI,
 } from '../constants/autonomy'
+
 
 const isBSC = window.location.href.includes('/bsc/')
 const isETH = window.location.href.includes('/ethereum/')
@@ -43,7 +45,17 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 
 export function useWETHContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId ? WETH[chainId].address : undefined, WETH_ABI, withSignerIfPossible)
+  console.log(chainId)
+ 
+
+let add
+  if(isETH){
+   add = '0xc778417E063141139Fce010982780140Aa0cD5Ab'   /* ropsten weth address!!!!!!! */
+  } else {
+    add = chainId ? WBNB[chainId].address : undefined
+  }
+  return useContract(add, WETH_ABI, withSignerIfPossible)
+
 }
 
 export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contract | null {
